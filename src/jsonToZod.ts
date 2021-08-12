@@ -18,7 +18,7 @@ export const jsonToZod = (
         return "z.boolean()";
       case "object":
         if(obj === null){
-          return z.null();
+          return "z.null()";
         }
         if (seen.find((_obj) => Object.is(_obj, obj))) {
           throw "Circular objects are not supported";
