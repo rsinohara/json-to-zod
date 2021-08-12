@@ -1,0 +1,30 @@
+{
+  "name": "json-to-zod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./dist && tsc && copyfiles package.json ./dist"
+  },
+  "keywords": [
+    "zod",
+    "json",
+    "converter",
+    "cli"
+  ],
+  "author": "Stefan Terdell",
+  "license": "ISC",
+  "bin": {
+    "json-to-zod": "./src/cli.js"
+  },
+  "dependencies": {
+    "prettier": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/prettier": "^2.3.2",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5",
+    "zod": "^3.7.1"
+  }
+}

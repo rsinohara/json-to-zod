@@ -1,0 +1,40 @@
+{
+    "str": "hello",
+    "nr": 123,
+    "bool": true,
+    "obj": {
+        "str": "hello",
+        "nr": 123,
+        "bool": true,
+        "innerObject": {
+            "str": "hello",
+            "nr": 123,
+            "bool": true
+        }
+    },
+    "emptyArr": [],
+    "strArr": [
+        "hello"
+    ],
+    "nrArr": [
+        123
+    ],
+    "boolArr": [
+        true
+    ],
+    "objectArr": [
+        {
+            "str": "hello",
+            "nr": 123,
+            "bool": true
+        }
+    ],
+    "arrArr": [
+        []
+    ],
+    "arrArrArr": [
+        [
+            []
+        ]
+    ]
+}
