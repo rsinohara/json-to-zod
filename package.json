@@ -1,6 +1,6 @@
 {
   "name": "json-to-zod",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Converts JSON objects or files into simple Zod schemas.",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,9 @@
     "cli"
   ],
   "author": "Stefan Terdell",
+  "contributors": [
+    "Renato Sinohara (https://github.com/rsinohara)"
+  ],
   "license": "ISC",
   "repository": {
     "type": "git",
