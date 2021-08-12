@@ -1,6 +1,11 @@
 import { format } from "prettier";
+import babelParser from "prettier/parser-babel";
 
-export const jsonToZod = (obj: any, name: string = "schema", module?: boolean): string => {
+export const jsonToZod = (
+  obj: any,
+  name: string = "schema",
+  module?: boolean
+): string => {
   const parse = (obj: any, seen: object[]): string => {
     switch (typeof obj) {
       case "string":
@@ -46,8 +51,15 @@ export const jsonToZod = (obj: any, name: string = "schema", module?: boolean): 
   };
 
   return module
-    ? format(`import {z} from "zod"\n\nexport const ${name}=${parse(obj, [])}`, {
+    ? format(
+        `import {z} from "zod"\n\nexport const ${name}=${parse(obj, [])}`,
+        {
+          parser: "babel",
+          plugins: [babelParser],
+        }
+      )
+    : format(`const ${name}=${parse(obj, [])}`, {
         parser: "babel",
-      })
-    : format(`const ${name}=${parse(obj, [])}`, { parser: "babel" });
+        plugins: [babelParser],
+      });
 };

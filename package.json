@@ -1,6 +1,6 @@
 {
   "name": "json-to-zod",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Converts JSON objects or files into simple Zod schemas.",
   "main": "index.js",
   "scripts": {

@@ -5,7 +5,8 @@
     "declaration": true,
     "module": "commonjs",
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "dist", "lab.ts", "lab.json"]
 }
