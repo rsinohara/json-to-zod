@@ -41,7 +41,7 @@ export const jsonToZod = (
           }
         }
         return `z.object({${Object.entries(obj).map(
-          ([k, v]) => `${k}:${parse(v, seen)}`
+          ([k, v]) => `'${k}':${parse(v, seen)}`
         )}})`;
       case "undefined":
         return "z.undefined()";
