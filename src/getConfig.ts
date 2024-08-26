@@ -4,7 +4,7 @@ import { cosmiconfigSync } from "cosmiconfig";
 const ConfigSchema = z.object({
   zodValueOverrides: z
     .object({
-      schema: z.object({}).optional(),
+      schema: z.record(z.record(z.string())),
     })
     .optional(),
 });
@@ -22,7 +22,7 @@ export const getConfig = (): z.infer<typeof ConfigSchema> | null => {
   const { config } = result;
   const configValidationResult = ConfigSchema.safeParse(config);
   if (!configValidationResult.success) {
-    console.error(configValidationResult.error.format());
+    console.error(configValidationResult.error);
     throw new Error(
       "Invalid Json To Zod config. Please double check your config file."
     );

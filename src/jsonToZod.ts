@@ -1,11 +1,12 @@
 import { format } from "prettier";
 import babelParser from "prettier/parser-babel";
+import { TConfig } from "./getConfig";
 
 export const jsonToZod = (
   obj: any,
   name: string = "schema",
   module?: boolean,
-  zodValueOverrides?: Record<string, Record<string, Record<string, string>>>
+  zodValueOverrides?: TConfig["zodValueOverrides"]
 ): string => {
   const parse = (obj: any, seen: object[]): string => {
     switch (typeof obj) {
