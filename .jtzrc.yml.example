@@ -1,0 +1,4 @@
+zodValueOverrides:
+  schema:
+    page:
+      created: "z.string().date()"
