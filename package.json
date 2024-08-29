@@ -1,6 +1,6 @@
 {
   "name": "json-to-zod",
-  "version": "1.1.2",
+  "version": "1.0.0",
   "description": "Converts JSON objects or files into simple Zod schemas.",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "json-to-zod": "./dist/src/cli.js"
   },
   "publishConfig": {
-    "spaceo:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "cosmiconfig": "^9.0.0",

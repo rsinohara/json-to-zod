@@ -16,6 +16,19 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm run build
-      - run: npm publish
+
+      - name: Modify package.json for local context
+        # Values in package.json must match the current GitHub repository to
+        # publish to it.
+        run: |
+          npm exec -- json -I -f package.json -e "this.name='@$GITHUB_REPOSITORY'"
+          npm exec -- json -I -f package.json -e "this.repository='https://github.com/$GITHUB_REPOSITORY'"
+
+      - name: Release NPM package
+        # The latest tag follows tagged versions to follow NPM conventions.
+        run: |
+          npm version ${{ env.NPM_VERSION }} --no-git-tag-version
+          cat package.json
+          npm publish --tag latest
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
