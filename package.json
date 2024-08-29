@@ -22,7 +22,7 @@
     "url": "https://github.com/StefanTerdell/json-to-zod"
   },
   "bin": {
-    "json-to-zod": "./src/cli.js"
+    "json-to-zod": "./dist/src/cli.js"
   },
   "publishConfig": {
     "@spaceo:registry": "https://npm.pkg.github.com"
