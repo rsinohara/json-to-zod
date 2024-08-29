@@ -25,7 +25,7 @@
     "json-to-zod": "./dist/src/cli.js"
   },
   "publishConfig": {
-    "@spaceo:registry": "https://npm.pkg.github.com"
+    "spaceo:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "cosmiconfig": "^9.0.0",
