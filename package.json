@@ -24,6 +24,9 @@
   "bin": {
     "json-to-zod": "./src/cli.js"
   },
+  "publishConfig": {
+    "@spaceo:registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "cosmiconfig": "^9.0.0",
     "prettier": "^2.3.2"
