@@ -1,11 +1,6 @@
 name: Node.js Package
 
-on:
-  release:
-    types: [created]
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   publish-gpr:
