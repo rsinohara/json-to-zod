@@ -29,15 +29,15 @@
   },
   "dependencies": {
     "cosmiconfig": "^9.0.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "zod": "^3.7.1"
   },
   "devDependencies": {
     "@types/node": "^16.6.0",
     "@types/prettier": "^2.3.2",
     "copyfiles": "^2.4.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.3.5",
-    "zod": "^3.7.1"
+    "typescript": "^4.3.5"
   },
   "types": "index.d.ts"
 }
