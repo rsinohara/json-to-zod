@@ -1,6 +1,6 @@
 {
   "name": "json-to-zod-plus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts JSON objects or files into simple Zod schemas.",
   "main": "index.js",
   "scripts": {
@@ -12,14 +12,14 @@
     "converter",
     "cli"
   ],
-  "author": "Stefan Terdell",
+  "author": "Mikkel Jakobsen",
   "contributors": [
-    "Renato Sinohara (https://github.com/rsinohara)"
+    "Mikkel Jakobsen Sinohara (https://github.com/spaceo)"
   ],
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/StefanTerdell/json-to-zod"
+    "url": "https://github.com/spaceo/json-to-zod"
   },
   "bin": {
     "json-to-zod": "./dist/src/cli.js"
