@@ -4,7 +4,8 @@ import babelParser from "prettier/parser-babel";
 export const jsonToZod = (
   obj: any,
   name: string = "schema",
-  module?: boolean
+  module?: boolean,
+  convertTuples: boolean = false
 ): string => {
   const parse = (obj: any, seen: object[]): string => {
     switch (typeof obj) {
@@ -25,19 +26,23 @@ export const jsonToZod = (
         }
         seen.push(obj);
         if (Array.isArray(obj)) {
-          const options = obj
-            .map((obj) => parse(obj, seen))
-            .reduce(
-              (acc: string[], curr: string) =>
-                acc.includes(curr) ? acc : [...acc, curr],
-              []
-            );
-          if (options.length === 1) {
-            return `z.array(${options[0]})`;
-          } else if (options.length > 1) {
-            return `z.array(z.union([${options}]))`;
+          if (convertTuples) {
+            return `z.tuple([${obj.map((item) => parse(item, seen)).join(", ")}])`;
           } else {
-            return `z.array(z.unknown())`;
+            const options = obj
+              .map((obj) => parse(obj, seen))
+              .reduce(
+                (acc: string[], curr: string) =>
+                  acc.includes(curr) ? acc : [...acc, curr],
+                []
+              );
+            if (options.length === 1) {
+              return `z.array(${options[0]})`;
+            } else if (options.length > 1) {
+              return `z.array(z.union([${options}]))`;
+            } else {
+              return `z.array(z.unknown())`;
+            }
           }
         }
         return `z.object({${Object.entries(obj).map(
