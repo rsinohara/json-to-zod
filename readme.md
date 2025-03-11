@@ -29,6 +29,28 @@ console.log(result)
 const schema = z.object({hello: z.string()});
 ```
 
+### Overriding zod values
+
+Since zod can be more specific about the primitives sometime you want to be
+more precise.
+
+Eg. if an string has been parsed to:
+
+```typescript
+z.string();
+```
+
+But you know it is a date and therefor should be called:
+
+```typescript
+z.string().date();
+```
+
+Then you can create a configuration file called: `.jtzrc.yml` and define
+schema overrides there.
+
+Take a look at the `.jtzrc.yml.example` file.
+
 ### Handling Tuples
 You can use the `convertTuples` option to handle tuples correctly.
 

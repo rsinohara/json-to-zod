@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { jsonToZod } from "./jsonToZod";
 import { readFileSync, writeFileSync, existsSync } from "fs";
+import { getConfig } from "./getConfig";
 let sourceArgumentIndex = process.argv.indexOf("--source");
 if (sourceArgumentIndex === -1) {
   sourceArgumentIndex = process.argv.indexOf("-s");
@@ -78,7 +79,9 @@ if (convertTuplesArgumentIndex !== -1) {
 if (targetFilePath) {
   let result: string;
   try {
-    result = jsonToZod(sourceFileData, name, true, convertTuples);
+    const config = getConfig();
+    result = jsonToZod(sourceFileData, name, true, convertTuples, config?.zodValueOverrides);
+
   } catch (e) {
     console.error("Failed to parse sourcefile content to Zod schema");
     console.error(e);
@@ -95,7 +98,8 @@ if (targetFilePath) {
 } else {
   let result: string;
   try {
-    result = jsonToZod(sourceFileData, name, false, convertTuples);
+    const config = getConfig();
+    result = jsonToZod(sourceFileData, name, false, convertTuples, config?.zodValueOverrides);
   } catch (e) {
     console.error("Failed to parse sourcefile content to Zod schema");
     console.error(e);
