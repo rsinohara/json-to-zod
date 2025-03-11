@@ -68,11 +68,20 @@ if (nameArgumentIndex !== -1) {
     process.exit(1);
   }
 }
+let convertTuplesArgumentIndex = process.argv.indexOf("--convertTuples");
+if (convertTuplesArgumentIndex === -1) {
+  convertTuplesArgumentIndex = process.argv.indexOf("-c");
+}
+let convertTuples: boolean = false;
+if (convertTuplesArgumentIndex !== -1) {
+  convertTuples = true;
+}
 if (targetFilePath) {
   let result: string;
   try {
     const config = getConfig();
-    result = jsonToZod(sourceFileData, name, true, config?.zodValueOverrides);
+    result = jsonToZod(sourceFileData, name, true, convertTuples, config?.zodValueOverrides);
+
   } catch (e) {
     console.error("Failed to parse sourcefile content to Zod schema");
     console.error(e);
@@ -90,7 +99,7 @@ if (targetFilePath) {
   let result: string;
   try {
     const config = getConfig();
-    result = jsonToZod(sourceFileData, name, false, config?.zodValueOverrides);
+    result = jsonToZod(sourceFileData, name, false, convertTuples, config?.zodValueOverrides);
   } catch (e) {
     console.error("Failed to parse sourcefile content to Zod schema");
     console.error(e);
